@@ -1,0 +1,26 @@
+{
+  "name": "hw10",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tdeakin93/hw10.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tdeakin93/hw10/issues"
+  },
+  "homepage": "https://github.com/tdeakin93/hw10#readme",
+  "devDependencies": {
+    "jest": "^27.0.1"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.0"
+  }
+}
