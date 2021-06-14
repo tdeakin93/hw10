@@ -1,3 +1,5 @@
+const Manager = require("./lib/Manager");
+
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -7,19 +9,42 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const generateHTML = require("./src/html-template");
 
-inquirer.prompt([
+const teamMembers = [];
+
+inquirer
+  .prompt([
     {
       type: "input",
       name: "managerName",
-        message: "What is the team manager's name?",
+      message: "What is the team manager's name?",
     },
-]).then((answers) => {
+    {
+      type: "input",
+      name: "managerId",
+      message: "What is the team manager's id?",
+    },
+    {
+      type: "input",
+      name: "managerNEmail",
+      message: "What is the team manager's email?",
+    },
+    {
+      type: "input",
+      name: "managerOfficeNumber",
+      message: "What is the team manager's office number?",
+    },
+  ])
+  //answers becomes array of values from above
+  .then((answers) => {
     //set variables
     console.log(answers);
-    //send variable to template
-    const htmlPageContent = generateHTML(answers);
-    createFile(htmlPageContent);
-    // wtf is going on
+    //create manager object - then extend opject to file
+    const manager = new Manager(answers.managerId, answers.managerName, answers.managerEmail, answers.managerOfficeNumber)
+    console.log(manager);
+    // //send variable to template
+    // const htmlPageContent = generateHTML(answers);
+    // createFile(htmlPageContent);
+    // // wtf is going on
   });
 
 function createFile(htmlCode) {
